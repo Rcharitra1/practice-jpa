@@ -22,7 +22,7 @@ public class Movie implements Serializable {
 
     @Column(nullable = false)
     @NotEmpty(message="Movie name is a required field")
-    @Size(min=1, max=2,message="Movie name allows {min} to {max} characters")
+    @Size(min=1, max=100,message="Movie name allows {min} to {max} characters")
     private String movieName;
 
     @Column(nullable = false)
@@ -30,7 +30,6 @@ public class Movie implements Serializable {
     private String genre;
 
     @Column(nullable = false)
-    @NotEmpty(message="release date is a required field")
     private LocalDate releaseDate;
 
     @Column(nullable = false)

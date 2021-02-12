@@ -57,6 +57,7 @@ class MovieRepositoryArquillianIT {
         newMovie.setMovieName("Harry Met Sally");
         LocalDateTime timeToTest = LocalDateTime.now();
         newMovie.setReleaseDate(LocalDate.parse("2020-12-12"));
+        newMovie.setRecordCreationDate(timeToTest);
         newMovie.setGenre("thriller");
 
         _movieRepository.create(newMovie);
@@ -134,7 +135,7 @@ class MovieRepositoryArquillianIT {
         assertEquals(LocalDate.parse("2020-12-12"), movie.getReleaseDate());
     }
     @Test
-    void shouldFinAll()
+    void shouldFindAll()
     {
         List<Movie> allMovies = _movieRepository.findAll();
 
@@ -146,7 +147,7 @@ class MovieRepositoryArquillianIT {
         assertEquals(LocalDate.parse("2020-12-12"), firstMovie.getReleaseDate());
 
         Movie lastMovie = allMovies.get(2);
-        assertEquals("Ju On", lastMovie.getMovieName());
+        assertEquals("Ring", lastMovie.getMovieName());
         assertEquals("horror", lastMovie.getGenre());
         assertEquals(LocalDate.parse("2020-12-01"), lastMovie.getReleaseDate());
     }
